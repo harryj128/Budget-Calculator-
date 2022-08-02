@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Budget Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        </style>
+    </head>
+    <h1>Budget Calculator</h1>
+    <body>
+        <ul>
+            <li><a href= "{{ url_for('home') }}">Home</a></li>
+            <li><a href= "{{ url_for('users') }}">Users</a></li>
+            <li><a href= "{{ url_for('budgets') }}">Budgets</a></li>
+        </ul>
+        {% block body%}
+        {% endblock body%}
+    </body>
+</html>
