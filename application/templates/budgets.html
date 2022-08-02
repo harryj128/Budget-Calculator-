@@ -1,0 +1,11 @@
+{% extends 'model.html'%}
+{% block body%}
+<h3>Users</h3>
+{% for budget in budgets %}
+{{ budget.__str__() }} <br>
+<a href= "{{ items/budget.budget_id }}">View Tasks</a>
+<a href= "{{ url_for('update_budget')/budget.budget_id }}">Update</a>
+<a href= "{{ url_for('delete_budget')/budget.budget_id }}">Delete</a>
+{% endfor %}
+<a href= "{{ url_for('add_budget') }}">Add Budget</a>
+{% endblock body%}

@@ -1,0 +1,16 @@
+{% extends 'model.html'%}
+{% block body%}
+
+<div class="Form">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.item_name.label }} {{ form.item_name }} <br>
+        {{ form.item_desc.label }} {{ form.item_desc }} <br>
+        {{ form.item_amount.label }} {{ form.item_amount }} <br>
+        {{ form.income.label }} {{ form.income }} <br>
+        {{ form.budget_id.label }} {{ form.budget_id }} <br>
+        {{ form.submit }}
+    </form>
+</div>
+
+{% endblock body%}
