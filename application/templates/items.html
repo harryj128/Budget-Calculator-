@@ -4,8 +4,8 @@
 
 {% for item in items %}
 {{ item.__str__() }} <br>
-<a href= "{{ url_for('update_item')/item.item_id }}">Update</a>
-<a href= "{{ url_for('delete_item')/item.item_id}}">Delete</a>
+<a href= "{{ url_for('update_item', item_id = item.item_id) }}">Update</a>
+<a href= "{{ url_for('delete_item', item_id = item.item_id) }}">Delete</a> <br>
 {% endfor %}
-<a href= "{{ url_for('add_item') }}">Add Budget</a>
+<a href= "{{ url_for('add_item') }}">Add Item</a>
 {% endblock body%}

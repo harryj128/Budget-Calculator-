@@ -3,9 +3,9 @@
 <h3>Users</h3>
 {% for user in users %}
 {{ user.__str__() }} <br>
-<a href= "{{ budgets/user.user_id }}">View Budgets</a>
-<a href= "{{ url_for('update_user')/user.user_id }}">Update</a>
-<a href= "{{ url_for('delete_user')/user.user_id }}">Delete</a>
+<a href= "{{ url_for('budgets_specific',user_id = user.user_id) }}">View Budgets</a>
+<a href= "{{ url_for('update_user', user_id = user.user_id) }}">Update</a>
+<a href= "{{ url_for('delete_user', user_id = user.user_id) }}">Delete</a> <br>
 {% endfor %}
 <a href= "{{ url_for('add_user') }}">Add User</a>
 {% endblock body%}
