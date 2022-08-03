@@ -10,7 +10,7 @@ class User(db.Model):
     budgets = db.relationship('Budget', backref = 'user')
 
     def __str__(self):
-        return (f"{self.user_name} £{self.annual_salary} {self.email} {self.budgets}")
+        return (f"Username: {self.user_name} Annual Salary: £{self.annual_salary} Email: {self.email} Linked Budgets {self.budgets}")
 
 #Budget is one to many with Tasks
 class Budget(db.Model):
@@ -21,7 +21,7 @@ class Budget(db.Model):
     items = db.relationship('Item', backref = 'budget')
 
     def __str__(self):
-        return (f"{self.budget_name} £{self.max_budget} {self.user.user_name} {self.items}")
+        return (f"Budget: {self.budget_name} Maxium Budget: £{self.max_budget} Belongs to:{self.user.user_name} Linked items: {self.items}")
 
 
 class Item(db.Model):
@@ -35,6 +35,6 @@ class Item(db.Model):
     def __str__(self):
         #works out percentage of total budget for each item
         per_budget = (self.item_amount/self.budget.max_budget) * 100
-        return (f"{self.item_name} £{self.item_amount} Income: {str(self.income)} {per_budget}%")
+        return (f"Task: {self.item_name} Amount: £{self.item_amount} Income: {str(self.income)} Percentage of Budget: {per_budget}%")
 
 

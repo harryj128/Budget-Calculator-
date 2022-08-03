@@ -50,8 +50,8 @@ def update_user(user_id):
 @app.route('/delete_user/<int:user_id>')
 def delete_user(user_id):
     user = User.query.get(user_id)
-    for budget in user.Budget:
-        for item in budget.Item:
+    for budget in user.budgets:
+        for item in budget.items:
             db.session.delete(item)
         db.session.delete(budget)
     db.session.delete(user)
@@ -111,7 +111,7 @@ def update_budget(budget_id):
 @app.route('/delete_budget/<int:budget_id>')
 def delete_budget(budget_id):
     budget = Budget.query.get(budget_id)
-    for item in budget.Item:
+    for item in budget.items:
         db.session.delete(item)
     db.session.delete(budget)
     db.session.commit()
