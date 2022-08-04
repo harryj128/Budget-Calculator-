@@ -13,7 +13,7 @@ class UserForm(FlaskForm):
 class BudgetForm(FlaskForm):
     budget_name = StringField('Budget name', validators = [DataRequired(), Length(min = 1, max = 20)])
     max_budget =  IntegerField('Max Budget')
-    user_id = SelectField('User', users =[])
+    user_id = SelectField('User', choices =[])
     submit = SubmitField('Submit')
 
 class ItemForm(FlaskForm):
@@ -21,5 +21,5 @@ class ItemForm(FlaskForm):
     item_desc = StringField('Description', validators = [Length(min = 1, max = 30)])
     item_amount = IntegerField('Amount')
     income = BooleanField()
-    budget_id = SelectField('Budget', budgets =[])
+    budget_id = SelectField('Budget', choices =[])
     submit = SubmitField('Submit')

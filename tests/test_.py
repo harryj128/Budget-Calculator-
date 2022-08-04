@@ -103,7 +103,7 @@ class TestPosts(TestBase):
             follow_redirects = True
         )
         self.assert200(response)
-        assert User.query.filter_by( budget_name ='thirdbudget').first() is not None
+        assert Budget.query.filter_by( budget_name ='thirdbudget').first() is not None
 
     def test_update_budget(self):
         response = self.client.post(
@@ -112,8 +112,8 @@ class TestPosts(TestBase):
             follow_redirects = True
         )
         self.assert200(response)
-        assert User.query.filter_by(user_name = 'firstbudget').first() is None
-        assert User.query.filter_by(budget_name = 'update').first() is not None
+        assert Budget.query.filter_by(budget_name = 'firstbudget').first() is None
+        assert Budget.query.filter_by(budget_name = 'update').first() is not None
 #Items
     def test_add_item(self):
         response = self.client.post(
@@ -122,7 +122,7 @@ class TestPosts(TestBase):
             follow_redirects = True
         )
         self.assert200(response)
-        assert User.query.filter_by( item_name ='electric').first() is not None
+        assert Item.query.filter_by( item_name ='electric').first() is not None
 
     def test_update_item(self):
         response = self.client.post(
@@ -131,5 +131,5 @@ class TestPosts(TestBase):
             follow_redirects = True
         )
         self.assert200(response)
-        assert User.query.filter_by(user_name = 'water').first() is None
-        assert User.query.filter_by(budget_name = 'update').first() is not None
+        assert Item.query.filter_by(item_name = 'water').first() is None
+        assert Item.query.filter_by(item_name = 'update').first() is not None

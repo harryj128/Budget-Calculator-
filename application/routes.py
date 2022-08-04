@@ -64,7 +64,7 @@ def add_budget():
     form = BudgetForm()
     users = User.query.all()
     for user in users:
-        form.user_id.users.append((user.user_id, f'{user.user_name}'))
+        form.user_id.choices.append((user.user_id, f'{user.user_name}'))
     if form.validate_on_submit():
         budget_name = form.budget_name.data
         max_budget = form.max_budget.data
@@ -93,7 +93,7 @@ def update_budget(budget_id):
     form = BudgetForm()
     users = User.query.all()
     for user in users:
-        form.user_id.users.append((user.user_id, f'{user.user_name}'))
+        form.user_id.choices.append((user.user_id, f'{user.user_name}'))
     if form.validate_on_submit():
         budget_name = form.budget_name.data
         max_budget = form.max_budget.data
@@ -122,6 +122,9 @@ def delete_budget(budget_id):
 @app.route('/add_item' , methods = ['GET', 'POST'])
 def add_item():
     form = ItemForm()
+    budgets = Budget.query.all()
+    for budget in budgets:
+        form.budget_id.choices.append((budget.budget_id, f'{budget.budget_name}'))
     if form.validate_on_submit():
         item_name = form.item_name.data
         item_desc = form.item_desc.data
@@ -149,7 +152,7 @@ def update_item(item_id):
     form = ItemForm()
     budgets = Budget.query.all()
     for budget in budgets:
-        form.budget_id.budgets.append((budget.budget_id, f'{budget.budget_name}'))
+        form.budget_id.choices.append((budget.budget_id, f'{budget.budget_name}'))
     if form.validate_on_submit():
         item_name = form.item_name.data
         item_desc = form.item_desc.data
