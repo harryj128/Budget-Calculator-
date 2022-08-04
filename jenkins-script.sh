@@ -16,7 +16,7 @@ ssh jenkins@prod-server << EOF
 if [ -d Budget-Calculator- ]; then
   cd Budget-Calculator- && git pull origin main
 else
-  git clone https://github.com/harryj128/Budget-Calculator-/tree/dev
+  git clone https://github.com/harryj128/Budget-Calculator-.git
   cd Budget-Calculator-
 fi
 
@@ -26,7 +26,6 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 
 python3 create.py
-python3 app.py
 
 python3 -m gunicorn -D --bind 0.0.0.0:5000 --workers 4 app:app
 EOF
