@@ -1,0 +1,14 @@
+{% extends 'model.html'%}
+{% block body%}
+
+<div class="Form">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.user_name.label }} {{ form.user_name }} <br>
+        {{ form.email.label }} {{ form.email }} <br>
+        {{ form.annual_salary.label }} {{ form.annual_salary }} <br>
+        {{ form.submit }}
+    </form>
+</div>
+
+{% endblock body%}

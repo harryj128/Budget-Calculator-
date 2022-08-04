@@ -6,5 +6,5 @@ pymysql
 pytest
 flask_testing
 pytest-cov
-selenium
+selenium == 3.141.0
 gunicorn
