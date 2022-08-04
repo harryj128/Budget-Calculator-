@@ -16,7 +16,7 @@ ssh jenkins@prod-server << EOF
 if [ -d Budget-Calculator- ]; then
   cd Budget-Calculator- && git pull origin main
 else
-  git clone https://github.com/harryj128/Budget-Calculator-/tree/dev
+  git clone https://github.com/harryj128/Budget-Calculator-.git
   cd Budget-Calculator-
 fi
 

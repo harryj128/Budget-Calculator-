@@ -38,10 +38,10 @@ class TestBase(LiveServerTestCase):
 
 class TestAddUser(TestBase):
     def submit_input(self, test_case):
-        user_name_field = self.driver.find_element_by_xpath('/html/body/div/form/input[2]')
-        email_field = self.driver.find_element_by_xpath('/html/body/div/form/input[3]')
-        annual_salary_field = self.driver.find_element_by_xpath('/html/body/div/form/input[4]')
-        submit = self.driver.find_element_by_xpath('/html/body/div/form/input[5]')
+        user_name_field = self.driver.find_element_by_xpath('/html/body/div/form/input[1]')
+        email_field = self.driver.find_element_by_xpath('/html/body/div/form/input[2]')
+        annual_salary_field = self.driver.find_element_by_xpath('/html/body/div/form/input[3]')
+        submit = self.driver.find_element_by_xpath('/html/body/div/form/input[4]')
         user_name_field.send_keys(test_case[0])
         email_field.send_keys(test_case[1])
         annual_salary_field.send_keys(test_case[2])
