@@ -127,7 +127,7 @@ class TestPosts(TestBase):
     def test_update_item(self):
         response = self.client.post(
             url_for('update_item', item_id = 1),
-            data = dict(item_name = 'update', item_amount = 3000, user_id = 1 ),
+            data = dict(item_name = 'update', item_amount = 3000, income = False, budget_id = 1 ),
             follow_redirects = True
         )
         self.assert200(response)

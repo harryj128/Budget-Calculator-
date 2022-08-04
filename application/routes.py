@@ -125,7 +125,7 @@ def add_item():
     budgets = Budget.query.all()
     for budget in budgets:
         form.budget_id.choices.append((budget.budget_id, f'{budget.budget_name}'))
-    if form.validate_on_submit():
+    if request.method == 'POST':
         item_name = form.item_name.data
         item_desc = form.item_desc.data
         item_amount = form.item_amount.data
@@ -153,7 +153,7 @@ def update_item(item_id):
     budgets = Budget.query.all()
     for budget in budgets:
         form.budget_id.choices.append((budget.budget_id, f'{budget.budget_name}'))
-    if form.validate_on_submit():
+    if request.method == 'POST':
         item_name = form.item_name.data
         item_desc = form.item_desc.data
         item_amount = form.item_amount.data
